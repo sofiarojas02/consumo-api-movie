@@ -354,6 +354,14 @@ button{ font-family: inherit; cursor: pointer; }
   box-shadow: 0 10px 24px -12px rgba(0,0,0,0.7);
 }
 
+.poster-card--sm{
+  width: 32vw;
+  max-width: 145px;
+}
+.poster-card--sm .poster-card__title{ font-size: 0.75rem; }
+.poster-card--sm .poster-card__sub{ font-size: 0.65rem; }
+.poster-card--sm .poster-card__body{ padding: 0.6rem 0.55rem; }
+
 .poster-card img{
   position: absolute;
   inset: 0;
@@ -494,13 +502,18 @@ button{ font-family: inherit; cursor: pointer; }
 /* =========================================================
    Responsive — desktop
    ========================================================= */
+  @media (min-width: 700px){
+  .poster-card--sm{ width: 22vw; max-width: 150px; }
+}
+
 @media (min-width: 1080px){
   .hero__media{ height: 72vh; }
 
   .hero__info{ max-width: 760px; }
 
   .shelf__track{ overflow-x: visible; flex-wrap: wrap; }
-  .poster-card{ width: calc((100% - 3 * 0.9rem) / 4); max-width: none; }
+  .poster-card{ width: calc((100% - 6 * 0.9rem) / 7); max-width: none;}
+  .poster-card--sm{ width: calc((100% - 5 * 0.9rem) / 6); }
 
   .categories__grid{ grid-template-columns: repeat(6, 1fr); }
   .category-chip{ flex-direction: column; text-align: center; padding: 1.1rem 0.6rem; }
@@ -508,5 +521,6 @@ button{ font-family: inherit; cursor: pointer; }
 }
 
 @media (min-width: 1400px){
-  .poster-card{ width: calc((100% - 5 * 0.9rem) / 6); }
+  .poster-card{ width: calc((100% - 6 * 0.9rem) / 7); }
+  .poster-card--sm{ width: calc((100% - 7 * 0.9rem) / 8); }
 }
