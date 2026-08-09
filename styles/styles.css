@@ -28,6 +28,11 @@
 
 html{ color-scheme: dark; }
 
+.inactive{
+  display: none;
+}
+
+
 body{
   margin: 0;
   background: var(--bg);

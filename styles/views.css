@@ -1,0 +1,159 @@
+/* views.css
+   Estilos para las secciones agregadas: trends-view, search-view,
+   category-view y movie-view. Se cargan DESPUÉS de styles.css para
+   poder sobreescribir sin tocar tu hoja original. */
+
+/* ===== Cuadrículas (grid) compartidas ===== */
+.trends-view__grid,
+.search-view__grid,
+.category-view__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 0 24px 48px;
+}
+
+.trends-view__grid .poster-card,
+.search-view__grid .poster-card,
+.category-view__grid .poster-card {
+  width: 100%;
+}
+
+.trends-view__grid .poster-card .movie-img,
+.search-view__grid .poster-card .movie-img,
+.category-view__grid .poster-card .movie-img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* ===== Encabezados de vista ===== */
+.trends-view__head,
+.search-view__head,
+.category-view__head {
+  padding: 24px 24px 20px;
+}
+
+.trends-view__title,
+.search-view__title,
+.category-view__title {
+  font-family: 'Bebas Neue', 'Inter', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.search-view__empty {
+  color: #9a9aa5;
+  padding: 0 24px;
+}
+
+/* ===== Detalle de película ===== */
+.movie-view__backdrop {
+  position: relative;
+  width: 100%;
+  max-height: 420px;
+  overflow: hidden;
+}
+
+.movie-view__backdrop-img {
+  width: 100%;
+  height: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-view__backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,12,0.05) 0%, rgba(10,10,12,0.95) 100%);
+  pointer-events: none;
+}
+
+.movie-view__back {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(10,10,12,0.6);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-view__back:hover {
+  background: rgba(181,101,245,0.8);
+}
+
+.movie-view__card {
+  padding: 8px 24px 24px;
+}
+
+.movie-view__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.movie-view__title {
+  font-family: 'Bebas Neue', 'Inter', sans-serif;
+  font-size: 1.9rem;
+  color: #fff;
+  margin: 0;
+}
+
+.movie-view__rating {
+  color: #f5c518;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.movie-view__overview {
+  color: #c7c7cf;
+  line-height: 1.5;
+  margin: 12px 0 16px;
+}
+
+.movie-view__genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.genre-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #e4e4ea;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.genre-tag__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ===== Categoría ===== */
+.category-view__title {
+  color: #b565f5;
+}
