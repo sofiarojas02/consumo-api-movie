@@ -357,6 +357,7 @@ button{ font-family: inherit; cursor: pointer; }
   display: flex;
   align-items: flex-end;
   box-shadow: 0 10px 24px -12px rgba(0,0,0,0.7);
+  cursor: pointer;
 }
 
 .poster-card--sm{
