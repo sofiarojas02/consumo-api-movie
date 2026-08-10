@@ -1,0 +1,5 @@
+//Si se quiere usar en los headers
+const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYWMwZTU4MGRkYjIyOGMwMTgxNmU3M2NkOWRhNzYyOSIsIm5iZiI6MTc4NjIyNTcyMi4wNzAwMDAyLCJzdWIiOiI2YTc3YTQzYTZkNzYyMzZiMTI0ZjAyYTEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.bt_OFq90iHQOMP86Wu6GfnNr1FXLvHOGbQHMstchxn0'
+
+//Si se quiere usar en la url
+const API_KEY_URL = 'fac0e580ddb228c01816e73cd9da7629'
