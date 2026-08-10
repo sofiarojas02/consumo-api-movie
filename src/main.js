@@ -8,13 +8,19 @@ const api = axios.create({
     }
 });
 
-
 async function getTrendingMoviesPreviw() {
     const {data} = await api('/trending/movie/day');
 
     const movies = data.results.slice(0,6);
 
     trendingTrack.innerHTML = '';
+
+    
+    const trendingLink = document.querySelector('#trendingLink')
+        trendingLink.addEventListener('click', () => {
+            location.hash = 'trends'
+    })
+
 
     movies.forEach(movie => {
         const movieContainer = document.createElement('article');
@@ -121,6 +127,12 @@ function renderCategories(list) {
 }
 
 async function getSimilarMoviesPreview() {
+    const similarLink = document.querySelector('#similarLink')
+        similarLink.addEventListener('click', () => {
+        location.hash = 'trends'
+    })
+
+
     const { data } = await api.get('/discover/movie', {
         params: { language: 'es', sort_by: 'popularity.desc' }
     });
@@ -222,10 +234,12 @@ async function getMovieDetail(movieId) {
         movieGenres.append(genreTag);
     });
 
-    getMovieSimilar(movieId);
+    getRelatedMovies(movieId);
 }
 
 async function getMovieSimilar(movieId) {
+
+
     const { data } = await api.get(`/movie/${movieId}/similar`, {
         params: { language: 'es' }
     });
@@ -270,7 +284,8 @@ async function getMovieSimilar(movieId) {
 async function getCategoryMovies(categoryId) {
     await ensureGenders();
 
-    const categoryName = allGenders.find(g => g.id === Number(categoryId))?.name || 'Categoría';
+    const categoryName = allGenders.find(g => g.id === Number(categoryId))?.name || 'Categoríaaa';
+    console.log(categoryName)
     categoryTitle.textContent = categoryName;
 
     const { data } = await api.get('/discover/movie', {
@@ -317,6 +332,7 @@ async function getTrendsFull() {
     const movies = data.results;
 
     trendsGrid.innerHTML = '';
+
 
     movies.forEach(movie => {
         const movieContainer = document.createElement('article');
@@ -398,5 +414,46 @@ async function getSearchResults(query) {
         movieContainer.append(movieImg, movieInfo);
 
         searchGrid.append(movieContainer);
+    });
+}
+
+async function getRelatedMovies(id) {
+    const { data } = await api.get(`/movie/${id}/recommendations`, {
+        params: { language: 'es' }
+    });
+
+    relatedMovies = data.results
+
+    movieRecommendationsTrack.innerHTML = '';
+
+    relatedMovies.forEach(movie => {
+        const movieContainer = document.createElement('article');
+        movieContainer.classList.add('poster-card', 'poster-card--sm');
+        movieContainer.setAttribute('id', movie.id);
+        movieContainer.addEventListener('click', () => {
+            location.hash = `#movie=${movie.id}`;
+        });
+
+        const movieImg = document.createElement('img');
+        movieImg.classList.add('movie-img');
+        movieImg.setAttribute('alt', movie.title);
+        movieImg.setAttribute('src', 'https://image.tmdb.org/t/p/w300' + movie.poster_path);
+
+        const movieInfo = document.createElement('div');
+        movieInfo.classList.add('poster-card__body');
+
+        const title = document.createElement('p');
+        title.classList.add('poster-card__title');
+        title.textContent = movie.title;
+
+        const sub = document.createElement('p');
+        sub.classList.add('poster-card__sub');
+        const genreName = allGenders.find(g => g.id === movie.genre_ids[0])?.name || 'Película';
+        sub.textContent = `${genreName} · ${movie.vote_average.toFixed(1)}`;
+
+        movieInfo.append(title, sub);
+        movieContainer.append(movieImg, movieInfo);
+
+        movieRecommendationsTrack.append(movieContainer);
     });
 }

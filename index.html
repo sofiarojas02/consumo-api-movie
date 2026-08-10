@@ -70,7 +70,7 @@
     <section id="trendingPreview" class="shelf inactive" aria-label="Tendencias">
       <div class="shelf__head" id="trendingHead">
         <h2 class="shelf__title" id="trendingTitle">Tendencias</h2>
-        <a href="#trends" class="shelf__link" id="trendingLink">Ver todo</a>
+        <button type="button" class="shelf__link" id="trendingLink" >Ver todo</button>
       </div>
 
       <div class="shelf__track" id="trendingTrack">
@@ -97,7 +97,7 @@
     <section class="shelf inactive" id="similarMovies" aria-label="Similares">
       <div class="shelf__head" id="similarHead">
         <h2 class="shelf__title" id="similarTitle">Similares</h2>
-        <a href="#" class="shelf__link" id="similarLink">Ver todo</a>
+        <button type="button" class="shelf__link" id="similarLink" >Ver todo</button>
       </div>
 
       <div class="shelf__track" id="similarTrack">
@@ -120,19 +120,19 @@
         <div class="movie-view__genres" id="movieGenres"></div>
       </div>
 
-      <section class="shelf" aria-label="Películas similares" id="movieSimilarShelf">
-        <div class="shelf__head" id="movieSimilarHead">
-          <h2 class="shelf__title">Películas similares</h2>
-        </div>
-        <div class="shelf__track" id="movieSimilarTrack"></div>
-      </section>
+    <section class="shelf" aria-label="Recomendaciones" id="movieRecommendationsShelf">
+      <div class="shelf__head" id="movieRecommendationsHead">
+        <h2 class="shelf__title">Recomendaciones</h2>
+      </div>
+      <div class="shelf__track" id="movieRecommendationsTrack"></div>
+    </section>
     </section>
 
     <!-- CATEGORIA (#category=ID) -->
     <section class="category-view inactive" id="categoryView" aria-label="Categoría">
       <div class="category-view__head" id="categoryHead">
         <h1 class="category-view__title" id="categoryTitle"></h1>
-        <button class="shelf__link" onclick="goHome()">Volver</button>
+        <button class="shelf__link" onclick="goBack()">Volver</button>
 
       </div>
       <div class="category-view__grid" id="categoryGrid"></div>
@@ -142,7 +142,7 @@
     <section class="trends-view inactive" id="trendsView" aria-label="Todas las tendencias">
       <div class="trends-view__head" id="trendsHead">
         <h1 class="trends-view__title">Tendencias</h1>
-        <button class="shelf__link" onclick="goHome()">Volver</button>
+        <button class="shelf__link" onclick="goBack()">Volver</button>
       </div>
       <div class="trends-view__grid" id="trendsGrid"></div>
     </section>
@@ -151,7 +151,7 @@
     <section class="search-view inactive" id="searchView" aria-label="Resultados de búsqueda">
       <div class="search-view__head" id="searchHead">
         <h1 class="search-view__title" id="searchResultsTitle"></h1>
-        <button class="shelf__link" onclick="goHome()">Volver</button>
+        <button class="shelf__link" onclick="goBack()">Volver</button>
 
       </div>
       <div class="search-view__grid" id="searchGrid"></div>

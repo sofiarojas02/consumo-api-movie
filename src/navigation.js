@@ -9,6 +9,7 @@ window.addEventListener('hashchange', navigator, false)
 const homeSections = [hero, trendingPreview, categories, similarMovies];
 const allSections  = [...homeSections, movieView, categoryView, trendsView, searchView];
 
+
 function hideAllSections(){
     allSections.forEach(section => section.classList.add('inactive'));
 }
@@ -16,6 +17,11 @@ function hideAllSections(){
 movieBackBtn.addEventListener('click', () => {
     history.back();
 });
+
+function goBack(){
+    history.back();
+
+}
 
 function navigator(){
     console.log({location})
@@ -82,8 +88,10 @@ function categoryPage(){
     hideAllSections()
     categoryView.classList.remove('inactive')
 
-    const categoryId = location.hash.split('=')[1]
-    getCategoryMovies(categoryId)
+const [_, categoryData] = location.hash.split('='); 
+    const categoryId = categoryData.split('-')[0]; // Toma '80'
+
+    getCategoryMovies(categoryId);
 }
 
 function goHome(){

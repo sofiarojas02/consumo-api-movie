@@ -157,3 +157,33 @@
 .category-view__title {
   color: #b565f5;
 }
+
+/* ===== Recomendaciones  */
+#movieRecommendationsTrack {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 25px 5px;
+  overflow: visible;
+}
+
+#movieRecommendationsTrack .poster-card {
+  min-width: 200px;
+  max-width: 100%;
+  margin: auto;
+  flex-shrink: initial;
+}
+
+#movieRecommendationsTrack .poster-card .movie-img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+@media (min-width: 750px) {
+  #movieRecommendationsTrack {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+  }
+}
